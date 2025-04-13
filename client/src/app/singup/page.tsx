@@ -9,9 +9,36 @@ import { Mail } from "lucide-react";
 import { Lock } from "lucide-react"
 
 export default function SingUp() {
+
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [password, setPassoword] = useState<string>("");
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    try {
+      const resposta = await fetch("http://localhost:3001/singup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({name, email, password}),
+      });
+
+      const data = await resposta.json();
+      
+      if(resposta.ok) {
+        alert("Cadastro realizado com sucesso!");
+        console.log(data);
+      } else {
+        alert("Erro ao cadastrar: " + data.message)
+      }
+    } catch(err){
+      console.error("Erro ao cadastrar: ", err)
+      alert("Erro inesperado.")
+    }
+  }
 
   return (
     <main className="bg-gradient-to-br from-[#fdf6f0] to-[#f0f4fd] bg-[url('/dots.svg')] bg-fixed bg-repeat text-gray-800 min-h-screen flex justify-center items-center">
@@ -21,7 +48,7 @@ export default function SingUp() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.2, ease: "easeOut" }}
       >
-        <form className="flex flex-col justify-center items-center space-y-4 w-[290px] sm:w-[350px]">
+        <form onSubmit={handleSubmit} className="flex flex-col justify-center items-center space-y-4 w-[290px] sm:w-[350px]">
           <h1 className="text-4xl text-#F0F8FF">Cadastre-se</h1>
 
           <label htmlFor="name" className="flex items-center gap-2">
