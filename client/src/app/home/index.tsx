@@ -4,6 +4,8 @@ import { useState } from "react";
 import Link from "next/link";
 import Button from "../components/button";
 import { motion } from "framer-motion";
+import { Mail } from "lucide-react";
+import { Lock } from "lucide-react"
 
 export default function HomePage() {
   const [email, setEmail] = useState<string>("");
@@ -20,7 +22,8 @@ export default function HomePage() {
         <form className="flex flex-col justify-center items-center space-y-4 w-[290px] sm:w-[350px]">
           <h1 className="text-4xl text-#F0F8FF">Login</h1>
 
-          <label htmlFor="email">
+          <label htmlFor="email" className="flex items-center gap-2">
+            <Mail size={20} />
             <motion.input
               type="email"
               name="email"
@@ -31,7 +34,8 @@ export default function HomePage() {
               transition={{ duration: 0.2 }}
             />
           </label>
-          <label htmlFor="password">
+          <label htmlFor="password" className="flex items-center gap-2">
+            <Lock size={20} />
             <motion.input
               type="password"
               name="password"

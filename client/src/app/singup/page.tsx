@@ -4,6 +4,9 @@ import Link from "next/link";
 import Button from "../components/button";
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { User } from "lucide-react";
+import { Mail } from "lucide-react";
+import { Lock } from "lucide-react"
 
 export default function SingUp() {
   const [name, setName] = useState<string>("");
@@ -21,8 +24,8 @@ export default function SingUp() {
         <form className="flex flex-col justify-center items-center space-y-4 w-[290px] sm:w-[350px]">
           <h1 className="text-4xl text-#F0F8FF">Cadastre-se</h1>
 
-          <label htmlFor="name">
-            <motion.input
+          <label htmlFor="name" className="flex items-center gap-2">
+          <User size={20}/> <motion.input
               type="text"
               name="name"
               placeholder="NAME"
@@ -33,7 +36,8 @@ export default function SingUp() {
             />
           </label>
 
-          <label htmlFor="email">
+          <label htmlFor="email" className="flex items-center gap-2">
+            <Mail size={20} />
             <motion.input
               type="email"
               name="email"
@@ -44,7 +48,8 @@ export default function SingUp() {
               transition={{ duration: 0.2 }}
             />
           </label>
-          <label htmlFor="password">
+          <label htmlFor="password" className="flex items-center gap-2">
+            <Lock size={20} />
             <input
               type="password"
               name="password"
