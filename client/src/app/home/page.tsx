@@ -2,6 +2,7 @@ import { User } from "lucide-react";
 import { LogOut } from "lucide-react";
 import Button from "@/app/components/button";
 import Footer from "@/app/footer/page";
+import Link from "next/link";
 
 export default function HomePage() {
   return (
@@ -15,10 +16,13 @@ export default function HomePage() {
             {" "}
             <User size={17} /> Perfil
           </li>
+          
+          <Link href="/login">
           <li className="flex gap-2 items-center hover:text-red-500 transition-colors cursor-pointer">
             {" "}
             <LogOut size={17} /> Sair
           </li>
+          </Link>
         </ul>
       </header>
       <div className="bg-[url('/dots.svg')] bg-fixed bg-repeat text-gray-800 min-h-full flex justify-center flex-col items-center space-y-4">

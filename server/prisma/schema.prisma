@@ -8,8 +8,6 @@ datasource db {
 }
 
 model Teste{
-
-    
     id      Int      @id @default(autoincrement())
     usuario String
     email   String   @unique
