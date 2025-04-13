@@ -10,7 +10,7 @@ import  Footer  from "@/app/footer/page"
 
 export default function LoginPage() {
   const [email, setEmail] = useState<string>("");
-  const [password, setPassoword] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
 
   return (
     <main className="bg-gradient-to-br from-[#e7f4fd] to-[#F0F8FF] bg-[url('/dots.svg')] bg-fixed bg-repeat text-gray-800 min-h-screen flex justify-center items-center">
@@ -41,7 +41,7 @@ export default function LoginPage() {
               type="password"
               name="password"
               placeholder="PASSWORD"
-              onChange={(e) => setPassoword(e.target.value)}
+              onChange={(e) => setPassword(e.target.value)}
               className="p-2 border-b-2 border-gray-300 focus:outline-none focus:border-blue-500"
               whileFocus={{ scale: 1.05 }}
               transition={{ duration: 0.2 }}
