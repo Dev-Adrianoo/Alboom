@@ -1,0 +1,25 @@
+mysql -u root -p;
+
+DENTRO DO MYSQL: (Só seguir a ordem)
+
+
+CREATE DATABASE alboombd;
+
+ALTER USER 'root'@'localhost' IDENTIFIED BY '12345678';
+
+exit;
+
+NO TERMINAL:
+
+npx prisma migrate dev --name init 
+
+npx prisma generate
+
+cd server && cd routes 
+
+npx tsx testconnect.ts 
+
+[Se tiver tudo certo deve aparecer "Deu tudo certo no terminal"]
+
+
+
