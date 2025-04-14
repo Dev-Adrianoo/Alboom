@@ -12,7 +12,7 @@ async function main() {
         console.log('deu tudo certo');
     }
     catch(error){
-        console.log("não foi possivel conectar com o banco de dados", error);
+        console.log("não foi possivel conectar com o banco de Dados", error);
 
     }finally{
 
