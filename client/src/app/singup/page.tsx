@@ -18,7 +18,7 @@ export default function SingUp() {
     e.preventDefault();
 
     try {
-      const resposta = await fetch("http://localhost:3001/singup", {
+      const resposta = await fetch("http://localhost:3333/api/users", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
