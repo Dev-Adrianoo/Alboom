@@ -11,7 +11,7 @@ app.use('/api', userRoutes);
 
 app.listen(PORT, ()=>{
 
-    console.log(`No ar e rodando na porta ${PORT}`)
+    console.log(`No ar e rodando na porta ${PORT}!!`)
 
 })
 
