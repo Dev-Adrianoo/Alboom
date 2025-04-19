@@ -1,15 +1,23 @@
 import express from 'express';
 import cors from 'cors';
 import userRoutes from './routes/user';
+import postsRoutes from './routes/posts'
 
 const app= express();
 const PORT = 3333;
 
-app.use(express.json());
 app.use(cors({
-    origin:'http://localhost:3000'
+    origin:'*',
 }));
+const corsConfig= {
+    origin:'*',
+    methods:['GET','POST'],
+    allowedheaders:['Content-Type', 'Authorization'],
+}
+app.use(express.json());
+app.use(express.urlencoded({extended:true }))
 app.use('/api', userRoutes);
+app.use('/api', postsRoutes);
 
 app.listen(PORT, ()=>{
 

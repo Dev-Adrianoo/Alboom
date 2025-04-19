@@ -8,8 +8,28 @@ datasource db {
 }
 
 model User {
-  id       Int    @id @default(autoincrement())
-  email    String @unique
+  id       Int      @id @default(autoincrement())
+  email    String   @unique
   name     String
   password String
+  post     Post[]
+  profile  Profile?
+}
+
+model Profile {
+  id          Int     @id @default(autoincrement())
+  foto        Bytes?
+  bio         String?
+  emailString String  @unique
+  email       User    @relation(fields: [emailString], references: [email])
+}
+
+model Post {
+  id      Int     @id @default(autoincrement())
+  imagem  Bytes
+  comment String?
+  autorId Int
+  autor   User    @relation(fields: [autorId], references: [id])
+
+  @@index([autorId], map: "Post_autorId_fkey")
 }
