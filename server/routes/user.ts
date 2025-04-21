@@ -1,11 +1,11 @@
 import express from 'express';
-
+import { Request, Response } from 'express';
 import { PrismaClient } from '@prisma/client';
 
 const router= express.Router();
 const prisma= new PrismaClient();
 
-router.get('/users', async (req, res)=>{
+router.get('/users', async (req:Request, res:Response)=>{
 
         try{
         const users= await prisma.user.findMany();
@@ -18,7 +18,7 @@ router.get('/users', async (req, res)=>{
 
         }
 });
-router.post("/users", async (req , res)=>{
+router.post("/users", async (req:Request , res:Response)=>{
         try{
             
             const{name, email, password}= req.body;
