@@ -17,11 +17,9 @@ const corsConfig= {
 app.use(express.json());
 app.use(express.urlencoded({extended:true }))
 app.use('/api', userRoutes);
-app.use('/api/posts/', (req, res)=>{
-        console.log(req.body)
-        res.send("tudo certo")
+app.use('/api', postsRoutes);
 
-});
+
 
 app.listen(PORT, ()=>{
 

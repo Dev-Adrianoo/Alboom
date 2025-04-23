@@ -12,7 +12,6 @@ model User {
   email    String   @unique
   name     String
   password String
-  post     Post[]
   profile  Profile?
 }
 
@@ -28,8 +27,4 @@ model Post {
   id      Int     @id @default(autoincrement())
   imagem  Bytes
   comment String?
-  autorId Int
-  autor   User    @relation(fields: [autorId], references: [id])
-
-  @@index([autorId], map: "Post_autorId_fkey")
 }
